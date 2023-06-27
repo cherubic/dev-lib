@@ -109,6 +109,26 @@ function setup_commithook() {
     popd || return
 }
 
+function setup_gitignore() {
+    pushd .
+    echo "setup gitignore file"
+    if grep -q "node_modules" .gitignore; then
+        echo "node_modules has been added to .gitignore"
+    else
+        echo "add node_modules to .gitignore"
+        echo "node_modules" >> .gitignore
+    fi
+
+    if grep -q ".husky" .gitignore; then
+        echo ".husky has been added to .gitignore"
+    else
+        echo "add .husky to .gitignore"
+        echo ".husky" >> .gitignore
+    fi
+    
+    popd || return
+}
+
 function main() {
     check_pre_tools "git"
     check_pre_tools "node"
@@ -122,6 +142,7 @@ function main() {
     install_commitizen
 
     setup_commithook
+    setup_gitignore
 }
 
 main "$@"
