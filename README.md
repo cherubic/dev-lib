@@ -23,6 +23,3 @@
 
 - commit-init.sh (Linux/Mac脚本)
 - commit-init.ps1 (Windows脚本)
-
-
-demo

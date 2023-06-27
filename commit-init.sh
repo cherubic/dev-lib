@@ -54,7 +54,7 @@ function install_commitizen() {
 function setup_commithook() {
     pushd .
     echo "setup commit hook"
-    npx husky add .husky/commit-msg "npx --no-install commitlint --config commitlint.config.yaml --edit \${1}"
+    npx husky add .husky/commit-msg "npx --no-install commitlint --edit \${1}"
     popd || return
 }
 
