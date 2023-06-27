@@ -27,7 +27,7 @@ function check_tools() {
 function install_husky() {
     pushd .
     echo "install husky by npm"
-    if check_tools "husky"; then
+    if [ -d .husky ]; then
         echo "husky has been installed"
     else
         echo "install husky"
@@ -42,6 +42,53 @@ function install_commitlint() {
     pushd .
     echo "install commitlint by npm"
     npm install --save-dev @commitlint/{config-conventional,cli}
+    commitlint_config
+    popd || return
+}
+
+function commitlint_config() {
+    pushd .
+    echo "commitlint config"
+    if [ ! -f .commitlint.config.js ]; then
+        cat <<EOF > .commitlint.config.js
+module.exports = {
+	parserPreset: 'conventional-changelog-conventionalcommits',
+	rules: {
+		'body-leading-blank': [1, 'always'],
+		'body-max-line-length': [2, 'always', 100],
+		'footer-leading-blank': [1, 'always'],
+		'footer-max-line-length': [2, 'always', 100],
+		'header-max-length': [2, 'always', 100],
+		'subject-case': [
+			1,
+			'never',
+			['sentence-case', 'start-case', 'pascal-case', 'upper-case'],
+		],
+		'subject-empty': [2, 'never'],
+		'subject-full-stop': [1, 'never', '.'],
+		'type-case': [2, 'always', 'lower-case'],
+		'type-empty': [2, 'never'],
+		'type-enum': [
+			2,
+			'always',
+			[
+				'build',
+				'chore',
+				'ci',
+				'docs',
+				'feat',
+				'fix',
+				'perf',
+				'refactor',
+				'revert',
+				'style',
+				'test',
+			],
+		],
+	},
+};
+EOF
+    fi
     popd || return
 }
 
@@ -56,7 +103,9 @@ function install_commitizen() {
 function setup_commithook() {
     pushd .
     echo "setup commit hook"
-    npx husky add .husky/commit-msg "npx --no-install commitlint --config .commitlint.config.js --edit \${1}"
+    if ! grep -q "commitlint" .husky/commit-msg; then
+        npx husky add .husky/commit-msg "npx --no-install commitlint --config .commitlint.config.js --edit \${1}"
+    fi
     popd || return
 }
 
