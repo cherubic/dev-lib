@@ -31,7 +31,9 @@ function install_husky() {
         echo "husky has been installed"
     else
         echo "install husky"
+        npm install husky --save-dev
         npx husky-init && npm install
+        npm pkg set scripts.test="echo \"no test\""
     fi
     popd || return
 }
@@ -47,14 +49,14 @@ function install_commitizen() {
     pushd .
     echo "install commitizen by npm"
     ! check_tools commitizen && npm install -g commitizen
-    commitizen init cz-conventional-changelog --save-dev --save-exact
+    commitizen init cz-conventional-changelog --save-dev --save-exact --force
     popd || return
 }
 
 function setup_commithook() {
     pushd .
     echo "setup commit hook"
-    npx husky add .husky/commit-msg "npx --no-install commitlint --edit \${1}"
+    npx husky add .husky/commit-msg "npx --no-install commitlint --config .commitlint.config.js --edit \${1}"
     popd || return
 }
 
@@ -63,7 +65,7 @@ function main() {
     check_pre_tools "node"
 
     pushd .
-    test ! -f "package.json" && npm init -y
+    test ! -f "package.json" && echo "" > package.json
     popd || return
 
     install_husky
