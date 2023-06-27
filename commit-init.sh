@@ -65,7 +65,7 @@ function main() {
     check_pre_tools "node"
 
     pushd .
-    test ! -f "package.json" && echo "" > package.json
+    test ! -f "package.json" && echo "{}" > package.json
     popd || return
 
     install_husky
