@@ -129,6 +129,14 @@ function setup_gitignore {
         Write-Host "add .husky to .gitignore"
         Add-Content -Path .gitignore -Value ".husky"
     }
+
+    if ((Get-Content .gitignore | Select-String -Pattern ".commitlint.config.js" -Quiet)) {
+        Write-Host ".commitlint.config.js has been added to .gitignore"
+    } 
+    else {
+        Write-Host "add .commitlint.config.js to .gitignore"
+        Add-Content -Path .gitignore -Value ".commitlint.config.js"
+    }
 }
 
 function main {

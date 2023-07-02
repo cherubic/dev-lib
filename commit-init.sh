@@ -123,6 +123,13 @@ function setup_gitignore() {
         echo "add .husky to .gitignore"
         echo ".husky" >> .gitignore
     fi
+
+    if grep -q ".commitlint.config.js" .gitignore; then
+        echo ".commitlint.config.js has been added to .gitignore"
+    else
+        echo "add .commitlint.config.js to .gitignore"
+        echo ".commitlint.config.js" >> .gitignore
+    fi
     
     popd || return
 }

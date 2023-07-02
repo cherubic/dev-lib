@@ -132,3 +132,4 @@ dist
 .husky
 package.json
 package-lock.json
+.commitlint.config.js
