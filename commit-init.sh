@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -x
-
 # This script is used to init git repository commit hooks tools and config.
 function check_pre_tools() {
     command_name=$1
