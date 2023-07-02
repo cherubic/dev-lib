@@ -3,7 +3,7 @@
 # This script is used to init git repository commit hooks tools and config.
 function check_pre_tools() {
     command_name=$1
-    if ! command -v $command_name &> /dev/null
+    if ! command -v "$command_name" &> /dev/null
     then
         echo "$command_name could not be found"
         exit 1
@@ -12,7 +12,7 @@ function check_pre_tools() {
 
 function check_tools() {
     command_name=$1
-    if ! command -v $command_name &> /dev/null
+    if ! command -v "$command_name" &> /dev/null
     then
         echo "$command_name could not be found"
         return 1
@@ -141,6 +141,8 @@ function main() {
 
     setup_commithook
     setup_gitignore
+
+    echo "commit init success"
 }
 
 main "$@"
