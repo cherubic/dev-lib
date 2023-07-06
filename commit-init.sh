@@ -29,8 +29,8 @@ function install_husky() {
         echo "husky has been installed"
     else
         echo "install husky"
-        npm install husky --save-dev
-        npx husky-init && npm install
+        npm install husky --save-dev -y
+        npx husky-init && npm install -y
         npm pkg set scripts.test="echo \"no test\""
     fi
     popd || return
@@ -129,6 +129,20 @@ function setup_gitignore() {
     else
         echo "add .commitlint.config.js to .gitignore"
         echo ".commitlint.config.js" >> .gitignore
+    fi
+
+    if grep -q "package-lock.json" .gitignore; then
+        echo "package-lock.json has been added to .gitignore"
+    else
+        echo "add package-lock.json to .gitignore"
+        echo "package-lock.json" >> .gitignore
+    fi
+
+    if grep -q "package.json" .gitignore; then
+        echo "package.json has been added to .gitignore"
+    else
+        echo "add package.json to .gitignore"
+        echo "package.json" >> .gitignore
     fi
     
     popd || return
