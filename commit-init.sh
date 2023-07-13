@@ -110,6 +110,18 @@ function setup_commithook() {
 function setup_gitignore() {
     pushd .
     echo "setup gitignore file"
+    if [ ! -f .gitignore ]; then
+        touch .gitignore
+    fi
+
+    # 移除末尾的空格或空白字符
+    sed -i 's/[[:space:]]*$//' .gitignore
+
+    # 检查最后一行是否为空行
+    if [ -n "$(tail -c 1 .gitignore)" ]; then
+        echo "" >> .gitignore
+    fi
+
     if grep -q "node_modules" .gitignore; then
         echo "node_modules has been added to .gitignore"
     else

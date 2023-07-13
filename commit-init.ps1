@@ -114,6 +114,15 @@ function setup_gitignore {
         New-Item -Path . -Name .gitignore -ItemType "file"
     }
 
+    # 移除末尾的空格或空白字符
+    (Get-Content -Path .gitignore) -replace '\s+$' | Set-Content -Path .gitignore
+
+    # 检查最后一行是否为空行
+    $lastChar = Get-Content -Path .gitignore | Select-Object -Last 1 -ExpandProperty Length
+    if ($lastChar -gt 0) {
+        Add-Content -Path .gitignore -Value ""
+    }
+
     if ((Get-Content .gitignore | Select-String -Pattern "node_modules" -Quiet)) {
         Write-Host "node_modules has been added to .gitignore"
     } 
