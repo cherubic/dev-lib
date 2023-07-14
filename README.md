@@ -15,12 +15,16 @@
     - Commitizen: [website](http://commitizen.github.io/cz-cli/), [github](http://commitizen.github.io/cz-cli/)；提交代码时强制执行规范化的提交消息格式
     - cz-customizable(可选): [github](https://github.com/leoforfree/cz-customizable)；提交代码时强制执行规范化的提交消息格式
     - husky: [website](https://typicode.github.io/husky/#/), [github](https://github.com/typicode/husky)；git hook管理工具
-
+    - Commitlint Conventional Commit (JetBrains IDE Plugin) [website](https://plugins.jetbrains.com/plugin/13389-conventional-commit)
+    - Conventional Commit (JetBrains IDE Plugin) [website](https://plugins.jetbrains.com/plugin/14046-commitlint-conventional-commit)
 
 3. 相关脚本
     - commit-init.sh (Linux/Mac脚本)
     - commit-init.ps1 (Windows脚本)
 
 4. 如何使用
-    1. 首先必须预先安装git，node命令以及相关工具
-    2. 下载对应脚本，终端进入需要初始化的项目后执行脚本即可。例： `wget <bash-url> && cd ~/myproject && bash ~/commit-init.sh`
+    首先必须预先安装git，node命令以及相关工具
+
+    - Linux/Mac
+        1. `sudo wget -O /usr/local/bin/commit-init "https://gist.githubusercontent.com/cherubic/ddddcc14e79d83c8c150b1f42b282599/raw/4f8483e2d00291a01ad9d0d98a657121c623a846/commit-init.sh" && sudo chmod +x /usr/local/bin/commit-init`
+        2. 后续在项目根目录下执行 `commit-init` 即可
