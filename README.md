@@ -1,8 +1,28 @@
 # code-etiquette
 
-我个人的代码习惯规范，会结合目前已有的规范文档以及相关工具。
+个人计算机编码规范，工具，脚本，配置等
 
-## commit
+## 工具
+
+### tmux
+
+### vim
+
+### zsh
+
+### bash
+
+## 配置
+
+### Mac
+
+### Linux
+
+### Windows
+
+## 规范
+
+### commit
 
 1. 相关规范
     - [约定式提交规范](https://www.conventionalcommits.org/zh-hans/v1.0.0/#%e7%ba%a6%e5%ae%9a%e5%bc%8f%e6%8f%90%e4%ba%a4%e8%a7%84%e8%8c%83)
