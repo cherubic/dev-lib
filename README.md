@@ -1,10 +1,26 @@
-# code-etiquette
+# dev lib
 
 个人计算机编码规范，工具，脚本，配置等
 
 ## 工具
 
 ### tmux
+
+终端复用器，[github地址](https://github.com/tmux/tmux)
+
+使用场景
+
+- Linux
+- Mac
+
+主要用途：
+
+- 避免终端断开后程序中断
+- 不同客户端都可以看到tmux中的内容
+- 多窗口管理
+
+如何使用：
+
 
 ### vim
 
