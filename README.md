@@ -1,32 +1,32 @@
 # dev lib
 
-个人计算机编码规范，工具，脚本，配置等
+个人计算机编码规范，工具，脚本，配置等。
 
 ## 工具
 
 ### tmux
 
 终端复用器，[github地址](https://github.com/tmux/tmux)
+Ubuntu如何使用：[文档](./configuration/linux/ubuntu/README.md#tmux)
+Mac如何使用：[文档](./configuration/mac/README.md#tmux)
 
-使用场景
+### visual studio code
 
-- Linux
-- Mac
-
-主要用途：
-
-- 避免终端断开后程序中断
-- 不同客户端都可以看到tmux中的内容
-- 多窗口管理
-
-如何使用：
-
+代码编辑器，[官网](https://code.visualstudio.com/)
+[文档](./configuration/README.md#visual-studio-code)
 
 ### vim
 
+代码编辑器，[官网](https://www.vim.org/)
+[文档](./configuration/README.md#vim)
+
 ### zsh
 
+Unix Shell和命令解释器，[官网](https://ohmyz.sh/)
+
 ### bash
+
+Unix Shell和命令解释器，[官网](https://www.gnu.org/software/bash/)
 
 ## 配置
 
