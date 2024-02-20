@@ -11,7 +11,13 @@ util::common::os_detect() {
 
     case $("${UNAME}" | tr '[:upper:]' '[:lower:]') in
     linux*)
-        echo 'linux'
+        if grep -q "Ubuntu" /etc/os-release 2>/dev/null; then
+            echo 'ubuntu'
+        elif grep -q "CentOS" /etc/os-release 2>/dev/null; then
+            echo 'centos'
+        else
+            echo 'linux'
+        fi
         ;;
     darwin*)
         echo 'darwin'
@@ -32,3 +38,20 @@ util::common::command_exists() {
     command -v "${1}" > /dev/null 2>&1
 }
 
+util::common::install_com() {
+    local os
+    os="${1}"
+    com_name="${2}"
+
+    case "${os}" in
+    "darwin")
+        echo "util::darwin::install_com \"${com_name}\""
+        ;;
+    "ubuntu")
+        echo "util::ubuntu::install_com \"${com_name}\""
+        ;;
+    *)
+        util::log::error_exit "Unsupported OS: ${os}"
+        ;;
+    esac
+}
