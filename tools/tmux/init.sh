@@ -64,3 +64,5 @@ main() {
 
     util::log::info "tmux is installed successfully"
 }
+
+main "$@"
