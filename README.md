@@ -4,11 +4,10 @@
 
 ## 工具
 
-### tmux
-
-终端复用器，[github地址](https://github.com/tmux/tmux)
-Ubuntu如何使用：[文档](./configuration/linux/ubuntu/README.md#tmux)
-Mac如何使用：[文档](./configuration/mac/README.md#tmux)
+- [tmux](./tools/tmux/README.md): 终端复用工具，提升开发以及运维效率。
+- [oh my zsh](./tools/oh-my-zsh/README.md): Unix Shell和命令解释器，美观，强大。
+- [vim](./tools/vim/README.md): 代码编辑器，适用于服务器开发。
+- [visual studio code](./tools/visual-studio-code/README.md): 代码编辑器，更加便捷，适用于所有语言开发。
 
 ### visual studio code
 
